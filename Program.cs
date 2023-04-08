@@ -1,17 +1,21 @@
 ﻿Random rand = new Random();
-int number = rand.Next(1, 28);
+int minRandomNumber = 1;
+int maxRandomNumber = 28;
 int multiplicity = 0;
+int beginningThreeDigitNumber = 100;
+int endThreeDigitNumber = 999;
+int number = rand.Next(minRandomNumber, maxRandomNumber);
 
-for (int i = 100; i <= 999; i++)
+for (int i = beginningThreeDigitNumber; i <= endThreeDigitNumber; i++)
 {
-	int i2 = i; 
+	int multiplicityCheckNumber = i; 
 
-	while (i2 > 0)
+	while (multiplicityCheckNumber > 0)
 	{
-		i2 = i2 - number;
+        multiplicityCheckNumber = multiplicityCheckNumber - number;
 	}
 
-	if (i2 == 0)
+	if (multiplicityCheckNumber == 0)
 	{
 		multiplicity++;
     }
