@@ -1,23 +1,22 @@
-﻿Random rand = new Random();
+﻿Random random = new Random();
 int minRandomNumber = 1;
 int maxRandomNumber = 28;
 int multiplicity = 0;
 int beginningThreeDigitNumber = 100;
 int endThreeDigitNumber = 999;
-int number = rand.Next(minRandomNumber, maxRandomNumber);
+int number = random.Next(minRandomNumber, maxRandomNumber);
+int numberToWork = number;
 
-for (int i = beginningThreeDigitNumber; i <= endThreeDigitNumber; i++)
+while (numberToWork < endThreeDigitNumber)
 {
-	int multiplicityCheckNumber = i; 
-
-	while (multiplicityCheckNumber > 0)
-	{
-        multiplicityCheckNumber = multiplicityCheckNumber - number;
-	}
-
-	if (multiplicityCheckNumber == 0)
-	{
-		multiplicity++;
+    if (numberToWork < beginningThreeDigitNumber)
+    {
+        numberToWork += number;
+    }
+    else if (numberToWork >= beginningThreeDigitNumber)
+    { 
+        multiplicity++;
+        numberToWork += number;
     }
 }
 
