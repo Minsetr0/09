@@ -5,18 +5,12 @@ int multiplicity = 0;
 int beginningThreeDigitNumber = 100;
 int endThreeDigitNumber = 999;
 int number = random.Next(minRandomNumber, maxRandomNumber);
-int numberToWork = number;
 
-while (numberToWork < endThreeDigitNumber)
+for (int i = number; i <= endThreeDigitNumber; i += number)
 {
-    if (numberToWork < beginningThreeDigitNumber)
+    if (i >= beginningThreeDigitNumber)
     {
-        numberToWork += number;
-    }
-    else if (numberToWork >= beginningThreeDigitNumber)
-    { 
         multiplicity++;
-        numberToWork += number;
     }
 }
 
